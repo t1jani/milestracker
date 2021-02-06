@@ -1,14 +1,8 @@
 php:
-  risky: false
-  version: 7
-  preset: recommended
+  preset: laravel
+  disabled:
+    - no_unused_imports
   finder:
-    exclude:
-      - "modules"
-      - "node_modules"
-      - "storage"
-      - "vendor"
-    name: "*.php"
     not-name:
-      - "*.blade.php"
-      - "_ide_helper.php"
+      - index.php
+      - server.php
