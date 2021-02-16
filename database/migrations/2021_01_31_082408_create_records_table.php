@@ -16,7 +16,7 @@ class CreateRecordsTable extends Migration
         Schema::create('records', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('miles');
+            $table->float('miles');
             $table->string('date');
             $table->text('notes')->nullable();
             $table->foreignId('user_id')->index()->constrained();

@@ -18,6 +18,10 @@
               <a href="{{ route('record.create') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Add Exercise
               </a>
+
+              <a href="{{ route('record.sort') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                Sort
+              </a>
             </div>
           </div>
         </div>

@@ -33,5 +33,8 @@ Route::group(['prefix' => 'records', 'middleware' => ['auth', 'verified'], 'as' 
     Route::get('/create', [RecordController::class, 'create'])->name('create');
     Route::post('/create', [RecordController::class, 'store']);
 
+    Route::get('/sorted', [RecordController::class, 'sort'])->name('sort');
+    Route::post('/sorted', [RecordController::class, 'storeSort']);
+
     Route::get('/show/{id}', [RecordController::class, 'show'])->name('show');
 });

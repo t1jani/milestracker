@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form action="{{ route('record.create') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('record.create') }}" method="POST">
                             @csrf
 
                             {{-- @if ($errors->has('miles') ?? $errors->has('date'))

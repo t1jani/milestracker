@@ -9,7 +9,7 @@ use Prophecy\Exception\Doubler\ReturnByReferenceException;
 class RecordController extends Controller
 {
 
-    
+
     public function __contruct()
     {
         $this->middleware('auth');
@@ -42,7 +42,7 @@ class RecordController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -77,5 +77,47 @@ class RecordController extends Controller
     {
         $record = Record::findOrFail($id);
         return view('record.show', ['record' => $record]);
+    }
+
+    /**
+     * Display record sort form
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function sort()
+    {
+        return view('record.sort');
+    }
+
+    /**
+     * Sort records
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeSort(Request $request)
+    {
+        $request->validate([
+            'fromDate' => ['required', 'string'],
+            'toDate' => ['required', 'string']
+        ]);
+
+        $from = $request->fromDate;
+        $to = $request->toDate;
+
+        $records = Record::all();
+        $sortedRecords = $records->whereBetween('date', [$from, $to]);
+        return view('record.sort', ['sortedRecord' => $sortedRecords]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
