@@ -91,7 +91,9 @@ class RecordController extends Controller
     }
 
     /**
-     * Sort records
+     * Sort records based on dates selected
+     * Calculate the total number of miles ridden based on the 
+     * selected periods.
      * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
