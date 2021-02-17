@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Record;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Prophecy\Exception\Doubler\ReturnByReferenceException;
 
 class RecordController extends Controller
@@ -95,7 +96,7 @@ class RecordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeSort(Request $request)
+    public function sortRecords(Request $request)
     {
         $request->validate([
             'fromDate' => ['required', 'string'],
@@ -107,7 +108,11 @@ class RecordController extends Controller
 
         $records = Record::all();
         $sortedRecords = $records->whereBetween('date', [$from, $to]);
-        return view('record.sort', ['sortedRecord' => $sortedRecords]);
+
+        // Total Miless
+        $miles = DB::table('records')->whereBetween('date', [$from, $to])->pluck('miles')->sum();
+
+        return view('record.sort', ['sortedRecord' => $sortedRecords, 'miles' => $miles]);
     }
 
     /**

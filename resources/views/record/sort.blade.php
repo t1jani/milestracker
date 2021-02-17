@@ -54,7 +54,7 @@
                                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                             <button type="submit"
                                                 class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 
-                                                        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                 Sort
                                             </button>
                                         </div>
@@ -90,7 +90,7 @@
                                             </tr>
                                         </thead>
 
-                                        @foreach ($sortedRecord as $record)
+                                        @foreach ($sortedRecord as $key => $record)
                                             <tbody class="bg-white divide-y divide-gray-200">
                                                 <tr>
                                                     <td
@@ -111,6 +111,19 @@
                                             </tbody>
                                         @endforeach
                                     </table>
+
+                                    <div class="mt-6">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead class="bg-gray-100">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-bold uppercase tracking-wide text-gray-900">
+                                                        Total Miles: {{ $miles }}
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
