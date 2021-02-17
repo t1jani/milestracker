@@ -14,7 +14,7 @@ class CreateRecordsTable extends Migration
     public function up()
     {
         Schema::create('records', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->string('title');
             $table->float('miles');
             $table->string('date');

@@ -37,4 +37,6 @@ Route::group(['prefix' => 'records', 'middleware' => ['auth', 'verified'], 'as' 
     Route::post('/sorted', [RecordController::class, 'sortRecords']);
 
     Route::get('/show/{id}', [RecordController::class, 'show'])->name('show');
+    
+    Route::delete('/destroy/{id}', [RecordController::class, 'destroy']);
 });

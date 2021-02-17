@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Prophecy\Exception\Doubler\ReturnByReferenceException;
 
 class RecordController extends Controller
 {
@@ -121,10 +120,13 @@ class RecordController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $record = Record::findOrFail($id);
+        $record->delete();
+
+        return redirect(route('home'));
     }
 }
