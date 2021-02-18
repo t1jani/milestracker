@@ -2,7 +2,7 @@
 
 Miles Tracker is kinda like Strava but without the bloat. It lets you do one thing and one thing only "KEEP TRACK OF THEM MILES BOY". This came to existence because keeping track of things in an excel sheet to see how many miles I rode in a week was getting boring.
 
-It is built using laravel, SQLite and Tailwind CSS as its database, nothing fancy just economical. 
+It is built using laravel, Tailwind CSS and SQLite as its database, nothing fancy just economical. 
 
 To see the technical documentation for this application, click [here](docs/milestracker-technical.pdf)
 
