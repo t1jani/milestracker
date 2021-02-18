@@ -18,7 +18,7 @@ class RecordController extends Controller
     /**
      * Display a listing of the resource in descending order.
      *
-     * @return \Illuminate\Http\Response
+     * @return App\Http\Controllers\Illuminate\View\View
      */
     public function index()
     {
@@ -31,7 +31,7 @@ class RecordController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return App\Http\Controllers\Illuminate\View\View
      */
     public function create()
     {
@@ -71,7 +71,7 @@ class RecordController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return App\Http\Controllers\Illuminate\View\View
      */
     public function show($id)
     {
@@ -82,7 +82,7 @@ class RecordController extends Controller
     /**
      * Display record sort form
      * 
-     * @return \Illuminate\Http\Response
+     * @return App\Http\Controllers\Illuminate\View\View
      */
     public function sort()
     {
@@ -95,7 +95,7 @@ class RecordController extends Controller
      * selected periods.
      * 
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return App\Http\Controllers\Illuminate\View\View
      */
     public function sortRecords(Request $request)
     {
@@ -107,11 +107,12 @@ class RecordController extends Controller
         $from = $request->fromDate;
         $to = $request->toDate;
 
+        // Return sorted data
         $records = Record::all();
         $sortedRecords = $records->whereBetween('date', [$from, $to]);
 
         // Total Miless
-        $miles = DB::table('records')->whereBetween('date', [$from, $to])->pluck('miles')->sum();
+        $miles = $records->whereBetween('date', [$from, $to])->pluck('miles')->count();
 
         return view('record.sort', ['sortedRecord' => $sortedRecords, 'miles' => $miles]);
     }

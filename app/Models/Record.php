@@ -15,7 +15,6 @@ class Record extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
         'title',
         'miles',
         'date',
