@@ -1,6 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank">
-<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
 ## About Miles Tracker
 
 Miles Tracker is kinda like Strava but without the bloat. It lets you do one thing and one thing only "KEEP TRACK OF THEM MILES BOY". This came to existence because keeping track of things in an excel sheet to see how many miles I rode in a week was getting boring.
