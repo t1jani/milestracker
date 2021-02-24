@@ -15,7 +15,11 @@ return [
     'analyzers' => ['*'],
 
     // If you wish to skip running some analyzers, list the classes in the array below.
-    'exclude_analyzers' => [],
+    'exclude_analyzers' => [
+        \Enlightn\Enlightn\Analyzers\Performance\CacheDriverAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\QueueDriverAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Reliability\InvalidReturnTypeAnalyzer::class
+    ],
 
     // If you wish to skip running some analyzers in CI mode, list the classes below.
     'ci_mode_exclude_analyzers' => [],
