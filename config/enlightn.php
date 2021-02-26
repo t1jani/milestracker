@@ -18,7 +18,8 @@ return [
     'exclude_analyzers' => [
         \Enlightn\Enlightn\Analyzers\Performance\CacheDriverAnalyzer::class,
         \Enlightn\Enlightn\Analyzers\Performance\QueueDriverAnalyzer::class,
-        \Enlightn\Enlightn\Analyzers\Reliability\InvalidReturnTypeAnalyzer::class
+        \Enlightn\Enlightn\Analyzers\Reliability\InvalidReturnTypeAnalyzer::class,
+        \Enlightn\Enlightn\Analyzers\Performance\SessionDriverAnalyzer::class
     ],
 
     // If you wish to skip running some analyzers in CI mode, list the classes below.
