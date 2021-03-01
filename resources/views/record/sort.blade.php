@@ -90,7 +90,7 @@
                                             </tr>
                                         </thead>
 
-                                        @foreach ($sortedRecord as $key => $record)
+                                        @foreach ($sortedRecord as  $record)
                                             <tbody class="bg-white divide-y divide-gray-200">
                                                 <tr>
                                                     <td

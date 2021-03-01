@@ -106,13 +106,13 @@ class RecordController extends Controller
 
         $from = $request->fromDate;
         $to = $request->toDate;
+        $records = Record::all();
 
         // Return sorted data
-        $records = Record::all();
         $sortedRecords = $records->whereBetween('date', [$from, $to]);
 
-        // Total Miless
-        $miles = $records->whereBetween('date', [$from, $to])->pluck('miles')->count();
+        // Total Miles
+        $miles = $records->whereBetween('date', [$from, $to])->pluck('miles')->sum();
 
         return view('record.sort', ['sortedRecord' => $sortedRecords, 'miles' => $miles]);
     }
